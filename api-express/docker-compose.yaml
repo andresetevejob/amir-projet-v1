@@ -1,0 +1,15 @@
+services:
+  app_node:
+    image: api-express:1.1.1
+    container_name: app_node
+    ports:
+      - 3000:3000
+    environment:
+      - HOSTDB=mongodb
+      - PORTDB=27017
+
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    ports:
+      - 27017:27017

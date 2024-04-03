@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row my-3">
+			<a href="{{ path('app_book_new') }}" class="btn btn-primary">New</a>
+		</div>
+		<div class="row">
+			{% for book in books %}
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">{{ book.title }}</h5>
+							<p class="card-text">{{ book.description }}</p>
+							<p class="card-text">
+								<small>Auteur:
+									{{ book.auteur }}
+								</small>
+							</p>
+							<a href="{{ path('app_book_delete', {'id': book._id}) }}" class="btn btn-danger">Suppression</a>
+							<a href="{{ path('app_book_edit', {'id': book._id}) }}" class="btn btn-primary">Edit</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
